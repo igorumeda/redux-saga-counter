@@ -4,12 +4,8 @@
   "description": "Redux Saga beginner tutorial",
   "main": "lib/index.js",
   "scripts": {
-    "test": "babel-node sagas.spec.js | tap-spec",
+    "test": "babel-node src/sagas.spec.js | tap-spec",
     "start": "budo main.js:build.js --dir ./ --verbose  --live -- -t babelify"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/redux-saga/redux-saga-beginner-tutorial.git"
   },
   "author": "Yassine ELOUAFI <yelouafi@gmail.com>",
   "license": "MIT",
@@ -23,13 +19,15 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
+    "@babel/core": "^7.18.10",
+    "@babel/node": "^7.18.10",
     "@babel/preset-env": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
+    "babel-plugin-root-import": "^6.6.0",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "budo": "^11.6.4",
     "tap-spec": "^5.0.0",
-    "tape": "^5.3.1"
+    "tape": "^5.6.0"
   }
 }
