@@ -8,3 +8,7 @@ export const increment = () => {
 export const decrement = () => {
 	store.dispatch({ type: types.REQUEST, action: types.DECREMENT });
 };
+
+export const activeTimer = () => {
+	store.dispatch({ type: types.ACTIVE_TIMER });
+};

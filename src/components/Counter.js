@@ -1,15 +1,15 @@
 import React from "react";
-import { PropTypes } from "prop-types";
 
 import store from "../store/store";
+import * as actions from "../store/actions";
 
-const Counter = ({ onIncrement, onDecrement }) => {
+const Counter = () => {
 	const state = store.getState();
 
 	return (
 		<div>
-			<button onClick={onIncrement}>Increment</button>{" "}
-			<button onClick={onDecrement}>Decrement</button>{" "}
+			<button onClick={() => actions.increment()}>Increment</button>{" "}
+			<button onClick={() => actions.decrement()}>Decrement</button>{" "}
 			{state.loading && <span>{"Loading..."}</span>}
 			{state.error && (
 				<span style={{ color: "red" }}>{"Algo deu errado"}</span>
@@ -18,11 +18,6 @@ const Counter = ({ onIncrement, onDecrement }) => {
 			<div>Clicked: {state.counter} times</div>
 		</div>
 	);
-};
-
-Counter.propTypes = {
-	onIncrement: PropTypes.func.isRequired,
-	onDecrement: PropTypes.func.isRequired,
 };
 
 export default Counter;

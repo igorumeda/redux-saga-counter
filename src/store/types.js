@@ -3,6 +3,7 @@ const types = {
 	INCREMENT: "INCREMENT",
 	DECREMENT: "DECREMENT",
 	ERROR: "ERROR",
+	ACTIVE_TIMER: "ACTIVE_TIMER",
 };
 
 export default types;

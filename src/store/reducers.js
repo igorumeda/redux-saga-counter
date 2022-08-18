@@ -4,6 +4,7 @@ const initialState = {
 	counter: 0,
 	loading: false,
 	error: false,
+	timer: undefined,
 };
 
 export default function counter(state = initialState, action) {

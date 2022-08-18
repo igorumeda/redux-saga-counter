@@ -1,4 +1,12 @@
-import { all, put, take, call, fork, actionChannel } from "redux-saga/effects";
+import {
+	all,
+	put,
+	take,
+	call,
+	actionChannel,
+	takeLeading,
+} from "redux-saga/effects";
+import { buffers } from "redux-saga";
 import types from "./types";
 
 export const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -22,10 +30,13 @@ export function* handleRequest(action) {
 }
 
 function* watchRequests() {
-	const requestChannel = yield actionChannel(types.REQUEST);
+	const requestChannel = yield actionChannel(
+		types.REQUEST,
+		buffers.sliding(3) // Limite de ações na fila
+	);
 	while (true) {
 		const { action } = yield take(requestChannel);
-		yield fork(handleRequest, action);
+		yield call(handleRequest, action);
 	}
 }
 
