@@ -4,6 +4,7 @@ const types = {
 	DECREMENT: "DECREMENT",
 	ERROR: "ERROR",
 	ACTIVE_TIMER: "ACTIVE_TIMER",
+	REQUEST_TIMER: "REQUEST_TIMER",
 };
 
 export default types;

@@ -1,11 +1,4 @@
-import {
-	all,
-	put,
-	take,
-	call,
-	actionChannel,
-	takeLeading,
-} from "redux-saga/effects";
+import { all, put, take, call, actionChannel } from "redux-saga/effects";
 import { buffers } from "redux-saga";
 import types from "./types";
 

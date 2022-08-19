@@ -4,7 +4,7 @@ const initialState = {
 	counter: 0,
 	loading: false,
 	error: false,
-	timer: undefined,
+	initialTimer: undefined,
 };
 
 export default function counter(state = initialState, action) {
@@ -18,16 +18,31 @@ export default function counter(state = initialState, action) {
 			};
 		case types.INCREMENT:
 			return {
+				...state,
 				counter: state.counter + 1,
 				loading: false,
 				error: false,
 			};
 		case types.DECREMENT:
 			return {
+				...state,
 				counter: state.counter - 1,
 				loading: false,
 				error: false,
 			};
+		case types.ACTIVE_TIMER:
+			if (!state.initialTimer) {
+				const newDate = new Date();
+				return {
+					...state,
+					initialTimer: newDate,
+				};
+			} else {
+				return {
+					...state,
+					initialTimer: undefined,
+				};
+			}
 		case types.ERROR:
 			return {
 				...state,
@@ -38,3 +53,7 @@ export default function counter(state = initialState, action) {
 			return state;
 	}
 }
+
+const currentDate = () => {
+	return new Date();
+};

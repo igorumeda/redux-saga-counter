@@ -5,9 +5,16 @@ import ReactDOM from "react-dom";
 
 import store from "./src/store/store";
 import Counter from "./src/components/Counter";
+import Timer from "./src/components/Timer";
 
 function render() {
-	ReactDOM.render(<Counter />, document.getElementById("root"));
+	ReactDOM.render(
+		<div>
+			<Counter />
+			<Timer />
+		</div>,
+		document.getElementById("root")
+	);
 }
 
 render();
